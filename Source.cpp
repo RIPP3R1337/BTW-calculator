@@ -14,7 +14,9 @@ int main()
 	do {
 #ifdef _WIN32
 		system("cls");
-#endif // _WIN32
+#else
+		system("clear"); // ie Linux or MacOS
+#endif 
 
 
 		
