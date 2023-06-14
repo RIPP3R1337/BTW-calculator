@@ -28,7 +28,6 @@ int main()
 		// check that the user entered i or e
 		if (omrekenen != 'i' && omrekenen != 'e') {
 			std::cout << "Voer alstublieft I/E in. U voerde in: " << omrekenen << "." << std::endl;
-			continue;  // restart the loop if input is invalid
 		}
 
 		std::cout << "Voer uw bedrag in: ";
