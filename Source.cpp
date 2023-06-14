@@ -32,7 +32,7 @@ int main()
 			std::cout << "Please enter I/E. You entered: " << omrekenen << "." << std::endl;
 		}
 
-		std::cout << "Enter your amount € ";
+		std::cout << "Enter your amount: ";
 		std::cin >> prijs;
 		// check if prijs is a valid positive number
 		if (!isPositiveDouble(prijs)) {
