@@ -2,13 +2,23 @@
 #include <cmath>
 #include <string>
 #include "round.h"
-#include "positive.h"
-
+#include "positief.h"
+#include <locale>
+#include <sstream>
+#include <algorithm>
 
 
 
 int main()
 {
+	/*
+	This code writes a floating point number using the global locale given by the environment
+	For example, in a system configured with a Spanish locale as default, 
+	this could write the number using a comma decimal separator:
+	*/
+	std::locale myLocale("");
+	std::cout.imbue(myLocale);
+
 	char restart;
 
 	do {
@@ -19,7 +29,7 @@ int main()
 #endif 
 
 
-		
+		std::string price; // this is so we can let the user input a comma
 		double prijs;
 		char omrekenen;
 
@@ -33,11 +43,25 @@ int main()
 		}
 
 		std::cout << "Enter your amount: ";
-		std::cin >> prijs;
+		std::cin >> price;
+		
+
+
+		// We convert the string back to double and replace the user inputted comma with a period
+		std::replace(price.begin(), price.end(), ',', '.');
+		std::istringstream iss(price);
+		if (!(iss >> prijs)) {
+			std::cout << "Please enter a valid number, you entered: " << price << "." << std::endl;
+		}
+		
 		// check if prijs is a valid positive number
 		if (!isPositiveDouble(prijs)) {
 			std::cout << "Please enter a positive number. You entered: " << prijs << "." << std::endl;
+			exit(0);
 		}
+
+
+
 
 #ifdef _WIN32
 		system("cls");
@@ -66,7 +90,10 @@ int main()
 		std::cout << "\n\nWould you like to calculate another price? (Y/N): ";
 		std::cin >> restart;
 
+
 	} while (tolower(restart) == 'y');
+
+
 
 
 	return 0;
