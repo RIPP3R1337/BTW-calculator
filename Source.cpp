@@ -72,12 +72,12 @@ int main()
 		switch (omrekenen)
 		{ // since we converted omrekenen to be lowercase no matter what, we don't need a separate case for 'e' and 'E', etc
 		case 'e':
-			std::cout << std::fixed << "You entered " << prijs << " Euro\n\n";
+			std::cout << "You entered " << prijs << " Euro\n\n";
 			std::cout << "21% TAX = +" << roundToTwoDecimalPlaces(prijs * 21 / 100) << " Euro\n\n";
 			std::cout << "This amount is: " << roundToTwoDecimalPlaces(prijs * 1.21) << " Euro including TAX\n\n";
 			break;
 		case 'i':
-			std::cout << std::fixed << "You entered " << prijs << " Euro\n\n";
+			std::cout << "You entered " << prijs << " Euro\n\n";
 			std::cout << "21% TAX = -" << roundToTwoDecimalPlaces(prijs * 21 / 121) << " Euro\n\n";
 			std::cout << "This amount is: " << roundToTwoDecimalPlaces(prijs / 1.21) << " Euro excluding TAX\n\n";
 			break;
