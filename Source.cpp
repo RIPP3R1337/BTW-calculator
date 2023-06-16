@@ -41,7 +41,7 @@ int main()
 			else {
 				std::cout << "Please enter I/E. You entered: " << omrekenen << "." << std::endl;
 				std::cout << "\nPress any key to return to previous section" << "." << std::endl;
-				_getch();
+				_getch(); // gets user their key input
 
 #ifdef _WIN32
 				system("cls");
