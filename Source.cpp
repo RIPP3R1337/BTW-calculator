@@ -2,7 +2,7 @@
 #include <cmath>
 #include <string>
 #include "round.h"
-#include "positief.h"
+#include "positive.h"
 #include <locale>
 #include <sstream>
 #include <algorithm>
