@@ -1,12 +1,6 @@
-#include <iostream>
-#include <cmath>
-#include <string>
 #include "round.h"
 #include "positive.h"
-#include <locale>
-#include <sstream>
-#include <algorithm>
-
+#include "includes.h"
 
 
 int main()
@@ -16,6 +10,7 @@ int main()
 	For example, in a system configured with a Spanish locale as default, 
 	this could write the number using a comma decimal separator:
 	*/
+
 	std::locale myLocale("");
 	std::cout.imbue(myLocale);
 
@@ -45,6 +40,7 @@ int main()
 		std::cout << "Enter your amount: ";
 		std::cin >> price;
 		
+		
 
 
 		// We convert the string back to double and replace the user inputted comma with a period
@@ -57,6 +53,7 @@ int main()
 		// check if prijs is a valid positive number
 		if (!isPositiveDouble(prijs)) {
 			std::cout << "Please enter a positive number. You entered: " << prijs << "." << std::endl;
+			system("pause");
 			exit(0);
 		}
 
@@ -68,16 +65,19 @@ int main()
 #else // ie Linux or MacOS
 		system("clear");
 #endif
-
+		
+		
 		switch (omrekenen)
 		{ // since we converted omrekenen to be lowercase no matter what, we don't need a separate case for 'e' and 'E', etc
 		case 'e':
-			std::cout << "You entered " << prijs << " Euro\n\n";
+			std::cout.precision(2);
+			std::cout << std::fixed << "You entered " << prijs << " Euro\n\n";
 			std::cout << "21% TAX = +" << roundToTwoDecimalPlaces(prijs * 21 / 100) << " Euro\n\n";
 			std::cout << "This amount is: " << roundToTwoDecimalPlaces(prijs * 1.21) << " Euro including TAX\n\n";
 			break;
 		case 'i':
-			std::cout << "You entered " << prijs << " Euro\n\n";
+			std::cout.precision(2);
+			std::cout << std::fixed <<"You entered " << prijs << " Euro\n\n";
 			std::cout << "21% TAX = -" << roundToTwoDecimalPlaces(prijs * 21 / 121) << " Euro\n\n";
 			std::cout << "This amount is: " << roundToTwoDecimalPlaces(prijs / 1.21) << " Euro excluding TAX\n\n";
 			break;
