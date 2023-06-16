@@ -28,21 +28,32 @@ int main()
 		double prijs;
 		char omrekenen;
 
-		std::cout << "Would you like to include or exclude tax? (I/E): ";
-		std::cin >> omrekenen;
-		// convert to lowercase, and then convert back to a char type (as the tolower() function returns an integer)
-		omrekenen = char(tolower(omrekenen));
-		// check that the user entered i or e
-		if (omrekenen != 'i' && omrekenen != 'e') {
-			std::cout << "Please enter I/E. You entered: " << omrekenen << "." << std::endl;
+		// while loop to loop back if user mistakenly enters anything else besides I or E
+		while (true) {
+			std::cout << "Would you like to include or exclude tax? (I/E): ";
+			std::cin >> omrekenen;
+			// convert to lowercase, and then convert back to a char type (as the tolower() function returns an integer)
+			omrekenen = char(tolower(omrekenen));
+			// check that the user entered i or e
+			if (omrekenen == 'i' || omrekenen == 'e') {
+				break;  // Valid input, exit the loop
+			}
+			else {
+				std::cout << "Please enter I/E. You entered: " << omrekenen << "." << std::endl;
+				std::cout << "\nPress any key to return to previous section" << "." << std::endl;
+				_getch();
+
+#ifdef _WIN32
+				system("cls");
+#else
+				system("clear");
+#endif
+
+			}
 		}
 
 		std::cout << "Enter your amount: ";
 		std::cin >> price;
-		
-		
-
-
 		// We convert the string back to double and replace the user inputted comma with a period
 		std::replace(price.begin(), price.end(), ',', '.');
 		std::istringstream iss(price);
@@ -56,8 +67,6 @@ int main()
 			system("pause");
 			exit(0);
 		}
-
-
 
 
 #ifdef _WIN32
@@ -86,7 +95,7 @@ int main()
 			
 		}
 
-
+			
 		std::cout << "\n\nWould you like to calculate another price? (Y/N): ";
 		std::cin >> restart;
 
