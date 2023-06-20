@@ -10,3 +10,7 @@ This is a dutch naming for "Tax" so hence why i called it "BTW" :) Might change 
 - Want to make a GUI for it.
 - Maybe implement choosing from different tax brackets (EU/US/ASIA) etc etc.
 - Make it more interactive, pretty plain right now
+
+
+# Video example:
+![](https://github.com/RIPP3R1337/BTW-calculator/blob/main/2023-06-20%2021-59-16.gif)
