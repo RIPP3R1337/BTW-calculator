@@ -1,6 +1,7 @@
 #include "round.h"
 #include "positive.h"
 #include "includes.h"
+#include "ignoreLine.h"
 
 
 int main()
@@ -40,6 +41,7 @@ int main()
 			}
 			else {
 				std::cout << "Please enter I/E. You entered: " << omrekenen << "." << std::endl;
+				ignoreLine();
 				std::cout << "\nPress any key to return to previous section" << "." << std::endl;
 				_getch(); // gets user their key input
 
@@ -98,7 +100,7 @@ int main()
 			
 		std::cout << "\n\nWould you like to calculate another price? (Y/N): ";
 		std::cin >> restart;
-
+		ignoreLine();
 
 	} while (tolower(restart) == 'y');
 
