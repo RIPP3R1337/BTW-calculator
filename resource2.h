@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by BTW calculator.rc
+// Used by BTW calculator2.rc
 
 // Next default values for new objects
 // 
